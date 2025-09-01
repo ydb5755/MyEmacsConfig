@@ -11,3 +11,4 @@
 
 (load-theme 'wombat)
 
+(straight-use-package 'magit)
