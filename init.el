@@ -39,3 +39,8 @@
   :straight t
   :init
   (vertico-mode))
+
+(use-package smartparens
+  :straight t
+  :config (require 'smartparens-config)
+  :init (smartparens-global-mode))
