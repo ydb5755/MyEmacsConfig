@@ -9,8 +9,6 @@
 
 (set-face-attribute 'default nil :font "Fira Code" :height 120)
 
-(load-theme 'wombat)
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -27,5 +25,17 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'magit)
-(straight-use-package 'vertico)
+(straight-use-package 'use-package)
+
+(use-package doom-themes
+  :straight t)
+
+(load-theme doom-dark+)
+
+(use-package magit
+  :straight t)
+
+(use-package vertico
+  :straight t
+  :init
+  (vertico-mode))
