@@ -30,7 +30,7 @@
 (use-package doom-themes
   :straight t)
 
-(load-theme doom-dark+)
+(load-theme 'doom-dark+)
 
 (use-package magit
   :straight t)
