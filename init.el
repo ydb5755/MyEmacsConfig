@@ -36,9 +36,6 @@
 
 (load-theme 'doom-dark+ t)
 
-(use-package doom-modeline
-  :init (doom-modeline-mode))
-
 (use-package magit)
 
 (use-package eglot
