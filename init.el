@@ -68,6 +68,10 @@
 (use-package diff-hl
   :init (global-diff-hl-mode)
   :hook (magit-post-refresh . diff-hl-magit-post-refresh))
+
+(use-package which-key
+  :config (which-key-mode 1))
+
 (use-package corfu
   :demand t
   :custom
