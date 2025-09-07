@@ -30,9 +30,9 @@
 
 (setq straight-use-package-by-default t)
 
-(load-theme 'doom-dark+)
 (use-package doom-themes)
 
+(load-theme 'doom-dark+ t)
 (use-package magit)
 
 (use-package vertico
