@@ -28,20 +28,17 @@
 
 (straight-use-package 'use-package)
 
-(use-package doom-themes
-  :straight t)
+(setq straight-use-package-by-default t)
 
 (load-theme 'doom-dark+)
+(use-package doom-themes)
 
-(use-package magit
-  :straight t)
+(use-package magit)
 
 (use-package vertico
-  :straight t
   :init
   (vertico-mode))
 
 (use-package smartparens
-  :straight t
   :config (require 'smartparens-config)
   :init (smartparens-global-mode))
