@@ -72,6 +72,12 @@
 (use-package which-key
   :config (which-key-mode 1))
 
+(use-package cape
+  :init
+  (add-to-list `completion-at-point-functions #'cape-keyword)
+  (add-to-list `completion-at-point-functions #'cape-file)
+  (add-to-list `completion-at-point-functions #'cape-emoji))
+
 (use-package corfu
   :demand t
   :custom
