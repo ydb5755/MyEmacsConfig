@@ -80,6 +80,10 @@
 
 (use-package orderless
   :custom (completion-styles '(orderless basic)))
+
+(use-package marginalia
+  :init (marginalia-mode))
+
 (use-package corfu
   :demand t
   :custom
