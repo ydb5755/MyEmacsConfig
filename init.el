@@ -103,6 +103,9 @@
 
 (use-package editorconfig
   :config (editorconfig-mode 1))
+
+(use-package dumb-jump
+  :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
