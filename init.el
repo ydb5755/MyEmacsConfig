@@ -78,6 +78,8 @@
   (add-to-list `completion-at-point-functions #'cape-file)
   (add-to-list `completion-at-point-functions #'cape-emoji))
 
+(use-package orderless
+  :custom (completion-styles '(orderless basic)))
 (use-package corfu
   :demand t
   :custom
