@@ -42,6 +42,17 @@
 (use-package smartparens
   :config (require 'smartparens-config)
   :init (smartparens-global-mode))
+(use-package corfu
+  :demand t
+  :custom
+  (corfu-auto t)
+  (corfu-seperator ?-)
+  (corfu-auto-prefix 2)
+  :init
+  (global-corfu-mode)
+  (corfu-history-mode 1)
+  (corfu-popupinfo-mode 1))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
