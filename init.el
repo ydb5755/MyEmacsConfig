@@ -6,9 +6,9 @@
 (menu-bar-mode -1)
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Fira Code" :height 120)
 (prefer-coding-system 'utf-8)
 
+(set-face-attribute 'default nil :font "FiraCode Nerd Font" :height 120)
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
