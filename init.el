@@ -84,6 +84,8 @@
 (use-package marginalia
   :init (marginalia-mode))
 
+(use-package yaml-mode)
+
 (use-package corfu
   :demand t
   :custom
