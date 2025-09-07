@@ -28,6 +28,8 @@
 
 (straight-use-package 'use-package)
 
+(global-display-line-numbers-mode t)
+
 (setq straight-use-package-by-default t)
 
 (use-package doom-themes)
