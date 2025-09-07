@@ -97,6 +97,10 @@
   (corfu-history-mode 1)
   (corfu-popupinfo-mode 1))
 
+(use-package projectile
+  :init
+  (projectile-mode +1))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
