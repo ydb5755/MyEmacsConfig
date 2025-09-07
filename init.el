@@ -64,6 +64,10 @@
 (use-package smartparens
   :config (require 'smartparens-config)
   :init (smartparens-global-mode))
+
+(use-package diff-hl
+  :init (global-diff-hl-mode)
+  :hook (magit-post-refresh . diff-hl-magit-post-refresh))
 (use-package corfu
   :demand t
   :custom
