@@ -36,6 +36,13 @@
 
 (load-theme 'doom-dark+ t)
 
+(use-package ultra-scroll
+  :init
+  (setq scroll-conservatively 3
+	scroll-margin 0)
+  :config
+  (ultra-scroll-mode t))
+
 (use-package magit)
 
 (use-package eglot
