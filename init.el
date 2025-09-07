@@ -7,6 +7,8 @@
 (setq visible-bell t)
 
 (set-face-attribute 'default nil :font "Fira Code" :height 120)
+(prefer-coding-system 'utf-8)
+
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
