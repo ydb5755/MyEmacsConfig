@@ -4,7 +4,6 @@
 (tooltip-mode -1)
 (set-fringe-mode 10)
 (menu-bar-mode -1)
-;; Set up the visible bell
 (setq visible-bell t)
 
 (set-face-attribute 'default nil :font "Fira Code" :height 120)
