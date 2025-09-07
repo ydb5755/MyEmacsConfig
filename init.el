@@ -48,6 +48,19 @@
   :init
   (vertico-mode))
 
+(use-package
+  php-mode
+  :init (setq phpactor-executable (executable-find "phpactor"))
+  :hook ((php-mode . eglot-ensure)
+	 (php-mode . (lambda ()
+		       (setq-local phpactor-executable
+				   (executable-find "phpactor")))))
+  :mode ("\\.php\\'"))
+
+(use-package phpactor
+  :after php-mode)
+
+
 (use-package smartparens
   :config (require 'smartparens-config)
   :init (smartparens-global-mode))
