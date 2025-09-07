@@ -29,6 +29,8 @@
 (straight-use-package 'use-package)
 
 (global-display-line-numbers-mode t)
+(global-display-fill-column-indicator-mode t)
+(set-fill-column 80)
 
 (setq straight-use-package-by-default t)
 
