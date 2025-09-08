@@ -49,11 +49,6 @@
 
 (use-package magit)
 
-(use-package eglot
-  :straight nil
-  :demand t
-  :defines eglot-server-programs)
-
 (use-package vertico
   :init
   (vertico-mode))
