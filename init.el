@@ -47,6 +47,8 @@
   :config
   (ultra-scroll-mode t))
 
+(use-package rg)
+
 (use-package magit)
 
 (use-package vertico
