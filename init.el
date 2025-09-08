@@ -49,7 +49,9 @@
 
 (use-package rg)
 
-(use-package magit)
+(use-package magit
+  :config
+  (setq magit-display-buffer-function #'magit-display-buffer-fullcolumn-most-v1))
 
 (use-package vertico
   :init
