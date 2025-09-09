@@ -40,6 +40,11 @@
 
 (load-theme 'doom-dark+ t)
 
+(use-package exec-path-from-shell
+  :config
+  :init (setq exec-path-from-shell-variables '("PATH" "MANPATH" "SSH_AUTH_SOCK" ))
+  (exec-path-from-shell-initialize))
+
 (use-package ultra-scroll
   :init
   (setq scroll-conservatively 3
