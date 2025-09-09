@@ -100,6 +100,12 @@
 
 (use-package yaml-mode)
 
+(use-package js
+  :straight nil
+  :config
+  (define-key js-mode-map (kbd "M-.") nil)
+  )
+
 (use-package corfu
   :demand t
   :custom
