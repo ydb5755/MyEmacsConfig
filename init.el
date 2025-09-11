@@ -62,14 +62,19 @@
   :init
   (vertico-mode))
 
-(use-package
-  php-mode
-  :init (setq phpactor-executable (executable-find "phpactor"))
+(use-package php-mode
+  :init
+  (setq phpactor-executable (executable-find "phpactor"))
   :hook ((php-mode . eglot-ensure)
-	 (php-mode . (lambda ()
-		       (setq-local phpactor-executable
-				   (executable-find "phpactor")))))
-  :mode ("\\.php\\'"))
+         (php-mode . (lambda ()
+                       (setq-local phpactor-executable
+                                   (executable-find "phpactor"))))
+         (php-mode . my/php-mode-face-setup))  ;; Add custom face hook
+  :mode ("\\.php\\'")
+  :config
+  (defun my/php-mode-face-setup ()
+    (set-face-attribute 'php-method-call-traditional nil :foreground "goldenrod")
+    (set-face-attribute 'php-function-call-traditional nil :foreground "#708090")))
 
 (use-package phpactor
   :after php-mode)
