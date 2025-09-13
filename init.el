@@ -105,11 +105,11 @@
 
 (use-package yaml-mode)
 
-(use-package js
-  :straight nil
+(use-package rjsx-mode
+  :mode ("\\.jsx\\'" "\\.js\\'")
+  :interpreter ("node" . rjsx-mode)
   :config
-  (define-key js-mode-map (kbd "M-.") nil)
-  )
+  (define-key rjsx-mode-map (kbd "M-.") nil))
 
 (use-package corfu
   :demand t
