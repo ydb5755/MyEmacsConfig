@@ -111,6 +111,9 @@
   :config
   (define-key rjsx-mode-map (kbd "M-.") nil))
 
+(use-package nix-mode
+  :mode ("\\.nix\\'"))
+
 (use-package corfu
   :demand t
   :custom
