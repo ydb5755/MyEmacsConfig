@@ -109,7 +109,8 @@
   :mode ("\\.jsx\\'" "\\.js\\'")
   :interpreter ("node" . rjsx-mode)
   :config
-  (define-key rjsx-mode-map (kbd "M-.") nil))
+  (define-key rjsx-mode-map (kbd "M-.") nil)
+  (setq js2-strict-missing-semi-warning nil))
 
 (use-package nix-mode
   :mode ("\\.nix\\'"))
