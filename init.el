@@ -36,6 +36,16 @@
 
 (setq straight-use-package-by-default t)
 
+(setq treesit-language-source-alist
+      '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"
+                        "master" "typescript/src"))
+        (tsx         . ("https://github.com/tree-sitter/tree-sitter-typescript"
+                        "master" "tsx/src"))))
+
+(use-package typescript-ts-mode
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)))
+
 (use-package doom-themes)
 
 (load-theme 'doom-dark+ t)
