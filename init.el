@@ -122,6 +122,9 @@
   (define-key rjsx-mode-map (kbd "M-.") nil)
   (setq js2-strict-missing-semi-warning nil))
 
+(use-package web-mode
+  :mode ("\\.vue'"))
+
 (use-package nix-mode
   :mode ("\\.nix\\'"))
 
