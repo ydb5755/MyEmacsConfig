@@ -5,6 +5,11 @@
 (set-fringe-mode 10)
 (menu-bar-mode -1)
 (setq visible-bell t)
+(global-display-line-numbers-mode t)
+(global-display-fill-column-indicator-mode t)
+(set-fill-column 80)
+(column-number-mode t)
+(setq-default truncate-lines t)
 
 (prefer-coding-system 'utf-8)
 
@@ -27,14 +32,9 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
-
-(global-display-line-numbers-mode t)
-(global-display-fill-column-indicator-mode t)
-(set-fill-column 80)
-(column-number-mode t)
-(setq-default truncate-lines t)
-
 (setq straight-use-package-by-default t)
+
+
 
 (setq treesit-language-source-alist
       '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"
