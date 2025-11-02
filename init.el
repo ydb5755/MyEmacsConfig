@@ -35,6 +35,12 @@
 (setq straight-use-package-by-default t)
 
 
+(use-package company
+  :config
+  (global-company-mode 1)
+  (setq company-minimum-prefix-length 1
+        company-idle-delay 0.0))
+
 
 (setq treesit-language-source-alist
       '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"
@@ -127,17 +133,6 @@
 
 (use-package nix-mode
   :mode ("\\.nix\\'"))
-
-(use-package corfu
-  :demand t
-  :custom
-  (corfu-auto t)
-  (corfu-seperator ?-)
-  (corfu-auto-prefix 2)
-  :init
-  (global-corfu-mode)
-  (corfu-history-mode 1)
-  (corfu-popupinfo-mode 1))
 
 (use-package projectile
   :init
