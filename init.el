@@ -34,6 +34,10 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l"))
 
 (use-package company
   :config
@@ -41,16 +45,71 @@
   (setq company-minimum-prefix-length 1
         company-idle-delay 0.0))
 
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+
+(with-eval-after-load 'lsp-mode
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("typescript-language-server" "--stdio"))
+    :activation-fn (lambda (filename _)
+                     (or (string-suffix-p ".ts" filename)
+                         (string-suffix-p ".tsx" filename)
+                         (string-suffix-p ".vue" filename)))
+    :priority 1
+    :add-on? t
+    :server-id 'ts-ls)))
+
+(with-eval-after-load 'lsp-mode
+  (add-hook 'typescript-ts-mode-hook #'lsp-deferred)
+  (add-hook 'tsx-ts-mode-hook #'lsp-deferred))
+
+(use-package vue-mode
+  :mode "\\.vue\\'"
+  :hook (vue-mode . lsp-deferred)
+  :config
+  (setq mmm-submode-decoration-level 0))
+
+(add-hook 'vue-mode-hook
+          (lambda ()
+            (setq-local lsp-disabled-clients '(vls vue-semantic-server))))
+
+(with-eval-after-load 'lsp-mode
+  (lsp-enable-which-key-integration t))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :hook (lsp-mode . lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point
+        lsp-ui-sideline-enable t))
+
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
+(use-package mmm-mode
+  :config
+  (setq mmm-global-mode 'maybe))
+
+(use-package typescript-mode
+  :mode ("\\.ts\\'" . typescript-mode))
+
+(with-eval-after-load 'vue-mode
+  (mmm-add-classes
+   '((vue-ts
+      :submode typescript-mode
+      :face mmm-code-submode-face
+      :front "<script[^>]*lang=[\"']ts[\"'][^>]*>"
+      :back "</script>")))
+  (mmm-add-mode-ext-class 'vue-mode nil 'vue-ts))
 
 (setq treesit-language-source-alist
       '((typescript . ("https://github.com/tree-sitter/tree-sitter-typescript"
                         "master" "typescript/src"))
         (tsx         . ("https://github.com/tree-sitter/tree-sitter-typescript"
                         "master" "tsx/src"))))
-
-(use-package typescript-ts-mode
-  :mode (("\\.ts\\'" . typescript-ts-mode)
-         ("\\.tsx\\'" . tsx-ts-mode)))
 
 (use-package doom-themes)
 
@@ -126,9 +185,6 @@
   :config
   (define-key rjsx-mode-map (kbd "M-.") nil)
   (setq js2-strict-missing-semi-warning nil))
-
-(use-package web-mode
-  :mode ("\\.vue'"))
 
 (use-package nix-mode
   :mode ("\\.nix\\'"))
