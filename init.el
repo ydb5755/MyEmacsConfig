@@ -85,7 +85,7 @@
          (php-mode . (lambda ()
                        (setq-local phpactor-executable
                                    (executable-find "phpactor"))))
-         (php-mode . my/php-mode-face-setup))  ;; Add custom face hook
+         (php-mode . my/php-mode-face-setup))
   :mode ("\\.php\\'")
   :config
   (defun my/php-mode-face-setup ()
@@ -94,7 +94,6 @@
 
 (use-package phpactor
   :after php-mode)
-
 
 (use-package smartparens
   :config (require 'smartparens-config)
