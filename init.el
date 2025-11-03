@@ -37,7 +37,8 @@
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "C-c l"))
+  (setq lsp-keymap-prefix "C-c l"
+	lsp-semantic-tokens-enable t))
 
 (use-package company
   :config
@@ -72,7 +73,8 @@
 
 (add-hook 'vue-mode-hook
           (lambda ()
-            (setq-local lsp-disabled-clients '(vls vue-semantic-server))))
+            (setq-local lsp-disabled-clients '(vls))
+            (setq-local company-backends '(company-capf))))
 
 (with-eval-after-load 'lsp-mode
   (lsp-enable-which-key-integration t))
