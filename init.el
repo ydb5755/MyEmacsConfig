@@ -153,6 +153,11 @@
     (set-face-attribute 'php-method-call-traditional nil :foreground "goldenrod")
     (set-face-attribute 'php-function-call-traditional nil :foreground "#708090")))
 
+(use-package nix-mode
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
+  :hook (nix-mode . eglot-ensure)
+  :mode ("\\.nix\\'"))
+
 (use-package phpactor
   :after php-mode)
 
@@ -187,9 +192,6 @@
   :config
   (define-key rjsx-mode-map (kbd "M-.") nil)
   (setq js2-strict-missing-semi-warning nil))
-
-(use-package nix-mode
-  :mode ("\\.nix\\'"))
 
 (use-package projectile
   :init
