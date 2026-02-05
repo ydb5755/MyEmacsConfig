@@ -154,7 +154,6 @@
     (set-face-attribute 'php-function-call-traditional nil :foreground "#708090")))
 
 (use-package nix-mode
-  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   :hook (nix-mode . eglot-ensure)
   :mode ("\\.nix\\'"))
 
